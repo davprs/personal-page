@@ -25,10 +25,10 @@ export default function LinkTreeSingleLink ({name, img, index, clickCallBack}) {
                     aspectRatio: "14/10",
                     objectFit: "cover",
                     borderRadius: 3,
-                    width: "30%",
+                    width: "20%",
                 }}
                 alt={"immagine non trovata"}/>
-                <Typography sx={{width: "100%", textAlign: "center"}} variant={"h6"}>{name}</Typography>    
+                <Typography sx={{width: "100%", textAlign: "left", fontSize: 15}} variant={"h6"}>{name}</Typography>
                 </CardContent>
             </CardActionArea>
 }

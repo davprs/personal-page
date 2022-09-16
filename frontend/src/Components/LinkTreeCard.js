@@ -1,4 +1,4 @@
-import { Card, CardMedia, CardContent, Typography , CardActionArea, Button, CardActions} from "@mui/material"
+import {Card, CardMedia, CardContent, Typography, CardActionArea, Button, CardActions, Box} from "@mui/material"
 import { borderRadius } from "@mui/system";
 import { useEffect, useState} from "react";
 import imgDavide from "../Assets/Images/imgDavide.jpg"
@@ -30,6 +30,7 @@ export const LinkTreeCard = ({cards, socials}) => {
         <Card sx={{ 
             display: "flex",
             flexDirection: "column",
+            maxHeight: "95vh",
             borderRadius: 3,
             background: "rgba(255, 255, 255, 0.5)"
         }} className={"linkTree"}>
@@ -38,27 +39,53 @@ export const LinkTreeCard = ({cards, socials}) => {
                 flexDirection: 'column',
                 alignItems: "center",
                 rowGap: 1,
-                justifyContent: "center",
-            }}>
-            <CardMedia
-                component="img"
-                image={imgDavide}
-                sx={{
-                    minWidth: "120px",
-                    maxWidth: "150px",
-                    borderRadius: 100,
-                    width: "30%",
-                }}
-                alt="foto di Davide Crisante"/>                
+                justifyContent: "center"}}>
+                <CardMedia
+                    component="img"
+                    image={imgDavide}
+                    sx={{
+                        minWidth: "120px",
+                        maxWidth: "150px",
+                        borderRadius: 100,
+                        width: "30%",
+                    }}
+                    alt="foto di Davide Crisante"/>
                 <Typography variant="h5">Davide Crisante</Typography>
             </CardContent>
+
             <div id="socialIcons">
                 {entrySocial}
             </div>
 
-            <div id="singleLinksContainer">
+            <Box sx={{
+                backgroundColor: "rgba(0, 0, 0, 0)",
+                overflow:"scroll",
+                scrollbarWidth: 'thin',
+                '::-webkit-scrollbar': {
+                    width: '0.4em',
+                },
+                '::-webkit-scrollbar-button': {
+
+                },
+                '::-webkit-scrollbar-thumb': {
+                    backgroundColor: '#888'
+                },
+                '::-webkit-scrollbar-thumb:hover': {
+                    background: '#555'
+                },
+                '::-webkit-scrollbar-track': {
+                    background: "rgba(0, 0, 0, 0)"
+                },
+                '::-webkit-scrollbar-track-piece': {
+
+                },
+                '::-webkit-scrollbar-corner': {
+
+                },
+
+            }} id="singleLinksContainer">
                 {entryCards}
-            </div>
+            </Box>
         </Card>
     );
 }

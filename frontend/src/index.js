@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
 import {BrowserRouter, Link, Route, Routes} from 'react-router-dom';
-import LinkTree from './Routes/LinkTree/LinkTree.tsx';
+import LinkTree from './Routes/LinkTree/LinkTree.js';
 import { ThemeProvider , unstable_createMuiStrictModeTheme } from '@mui/material/styles'; //https://mui.com/material-ui/customization/theming/
 
 const theme = unstable_createMuiStrictModeTheme();
@@ -12,7 +12,7 @@ const theme = unstable_createMuiStrictModeTheme();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
-  <React.StrictMode>
+  <>
     <ThemeProvider theme={theme}>
       <BrowserRouter basename='/'>
         <Routes>
@@ -22,7 +22,7 @@ root.render(
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
-  </React.StrictMode>
+  </>
 );
 
 // import React from 'react';
