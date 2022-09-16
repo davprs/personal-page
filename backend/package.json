@@ -2,7 +2,7 @@
     "name": "backend",
     "version": "1.0.0",
     "description": "backend is the ultimate backend solution",
-    "main": "src/server.js",
+    "main": "index.js",
     "scripts": {
         "setup": "npm install && npm update",
         "start": "node index.js"
