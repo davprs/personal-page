@@ -4,7 +4,7 @@
     "description": "backend is the ultimate backend solution",
     "main": "index.js",
     "scripts": {
-        "build": "(npm run build --prefix ../frontend && move ../frontend/build ./)",
+        "build": "npm run build --prefix ../frontend && move ../frontend/build ./",
         "setup": "npm install && npm update",
         "start": "node index.js"
     },
