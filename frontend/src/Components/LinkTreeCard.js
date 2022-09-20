@@ -80,7 +80,7 @@ export const LinkTreeCard = ({cards, socials}) => {
 
                 },
                 '::-webkit-scrollbar-corner': {
-
+                    background: "rgba(0,0,0,0)"
                 },
 
             }} id="singleLinksContainer">
