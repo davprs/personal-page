@@ -45,9 +45,11 @@
 
         #singleLinksContainer {
             justify-content: space-between;
+            width: calc(100% - 0.4em);
+            margin-left: 0.4em;
             .LinkTreeCardActionArea{
-                width: 96%;
                 flex-basis: 49%;
+
             }
         }
     }

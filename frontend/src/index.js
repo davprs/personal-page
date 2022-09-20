@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
-import App from './App';
 import {BrowserRouter, Link, Route, Routes} from 'react-router-dom';
 import LinkTree from './Routes/LinkTree/LinkTree.js';
+import CssBaseline from '@mui/material/CssBaseline';
+
 import { ThemeProvider , unstable_createMuiStrictModeTheme } from '@mui/material/styles'; //https://mui.com/material-ui/customization/theming/
 
 const theme = unstable_createMuiStrictModeTheme();
@@ -14,7 +15,9 @@ root.render(
   
   <>
     <ThemeProvider theme={theme}>
-      <BrowserRouter basename='/'>
+        <CssBaseline />
+
+        <BrowserRouter basename='/'>
         <Routes>
           <Route index path='/' element={<Link to={"/link"}> ciao </Link>} />
           <Route path='link' element={<LinkTree />} />
