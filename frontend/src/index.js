@@ -23,8 +23,7 @@ root.render(
 
         <BrowserRouter basename='/'>
         <Routes>
-          <Route index path='/' element={<Link to={"/link"}> ciao </Link>} />
-          <Route path='link' element={<LinkTree />} />
+          <Route index path='/' element={<LinkTree />} />
           <Route path='*' element={<div>Non so</div>} />
         </Routes>
       </BrowserRouter>
