@@ -1,5 +1,5 @@
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material"
-import { grey } from "@mui/material/colors"
+import { CardActionArea, CardContent, CardMedia, Typography } from "@mui/material"
+import NeededTheme from "../Themes/getNeededTheme";
 
 
 export default function LinkTreeSingleLink ({name, img, index, clickCallBack}) {
@@ -10,7 +10,7 @@ export default function LinkTreeSingleLink ({name, img, index, clickCallBack}) {
                     flexDirection: "column",
                     borderRadius:5,
                     marginBottom: "10px",
-                    backgroundColor: "rgba(255, 255, 255, 0.7)",
+                    backgroundColor: NeededTheme().palette.cardElementBG.main,
                 }} className="LinkTreeCardActionArea">
                 <CardContent
                 sx={{

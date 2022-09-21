@@ -5,16 +5,20 @@ import {BrowserRouter, Link, Route, Routes} from 'react-router-dom';
 import LinkTree from './Routes/LinkTree/LinkTree.js';
 import CssBaseline from '@mui/material/CssBaseline';
 
-import { ThemeProvider , unstable_createMuiStrictModeTheme } from '@mui/material/styles'; //https://mui.com/material-ui/customization/theming/
+import { ThemeProvider , unstable_createMuiStrictModeTheme } from '@mui/material/styles';
+import getNeededTheme from "./Themes/getNeededTheme";
+import NeededTheme from "./Themes/getNeededTheme";
+import {createTheme, useMediaQuery} from "@mui/material";
+import darkTheme from "./Themes/darkTheme";
+import {dark} from "@mui/material/styles/createPalette"; //https://mui.com/material-ui/customization/theming/
 
-const theme = unstable_createMuiStrictModeTheme();
-
+let usedTheme = unstable_createMuiStrictModeTheme(NeededTheme);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
   <>
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={usedTheme}>
         <CssBaseline />
 
         <BrowserRouter basename='/'>
@@ -33,7 +37,7 @@ root.render(
 // import CssBaseline from '@mui/material/CssBaseline';
 // import { ThemeProvider } from '@mui/material/styles';
 // import App from './App';
-// import theme from './Themes/theme.js';
+// import theme from './Themes/lightTheme.js';
 
 // const rootElement = document.getElementById('root');
 // const root = createRoot(rootElement);

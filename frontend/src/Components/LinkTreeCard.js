@@ -1,9 +1,9 @@
 import {Card, CardMedia, CardContent, Typography, CardActionArea, Button, CardActions, Box} from "@mui/material"
-import { borderRadius } from "@mui/system";
 import { useEffect, useState} from "react";
 import imgDavide from "../Assets/Images/imgDavide.jpg"
 import LinkTreeSingleLink from "./LinkTreeSingleLink";
 import { SocialIcon } from 'react-social-icons';
+import NeededTheme from "../Themes/getNeededTheme";
 
 export const LinkTreeCard = ({cards, socials}) => {
     const [entryCards, loadCards] = useState();
@@ -27,12 +27,13 @@ export const LinkTreeCard = ({cards, socials}) => {
 
 
     return (
-        <Card sx={{ 
+        <Card sx={{
+            color:  NeededTheme().palette.text.primary,
             display: "flex",
             flexDirection: "column",
             maxHeight: "95vh",
             borderRadius: 3,
-            background: "rgba(255, 255, 255, 0.5)"
+            background: NeededTheme().palette.cardBG.main
         }} className={"linkTree"}>
             <CardContent sx={{ 
                 display: 'flex',
