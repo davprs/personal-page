@@ -5,6 +5,7 @@ import axios from "axios";
 import { createClient } from '@supabase/supabase-js'
 import Head from "next/head";
 import Image from "next/image";
+import {fetch} from "next/dist/compiled/@edge-runtime/primitives/fetch";
 
 // This function gets called at build time on server-side.
 // It may be called again, on a serverless function, if
@@ -27,13 +28,12 @@ export async function getStaticProps() {
 
 
     let fetchedBackgroundImage;
-    await axios("https://bing.biturl.top/?resolution=1920&format=json&index=random&mkt=random")
-        .then(res => {
-            fetchedBackgroundImage = (res.data.url)
-        })
+    fetchedBackgroundImage = await fetch("https://bing.biturl.top/?resolution=1920&format=json&index=random&mkt=random")
+        .then(res => res.json())
+        .then(res => res.url)
         .catch(e => {
             console.error(e);
-            fetchedBackgroundImage = null;
+            return null;
         });
     return {
         props: {
