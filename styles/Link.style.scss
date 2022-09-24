@@ -1,0 +1,93 @@
+#LinkTreeCard{
+  background-position: center;
+  object-fit: cover;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+
+  .backgroundImage{
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+
+  #socialIcons{
+    display: flex;
+    justify-content: center;
+    .socialIcon{
+      scale: 0.7;
+    }
+    margin-bottom: 10px;
+  }
+}
+
+
+.picWrapper{
+  width: 100%;
+  height: 100%;
+}
+
+.linkTree {
+  justify-content: center;
+  width: 500px;
+  margin: auto;
+  /* From https://css.glass */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.1px);
+  -webkit-backdrop-filter: blur(7.1px);
+
+  #singleLinksContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+
+    .LinkTreeCardActionArea{
+      width: 96%;
+      flex-basis: 100%;
+
+    }
+  }
+
+}
+@media only screen and (min-width: 1000px) {
+  .linkTree {
+    width: clamp(600px, 70vw,  800px);
+
+    #singleLinksContainer {
+      justify-content: space-between;
+      width: calc(100% - 0.4em);
+      margin-left: 0.4em;
+      .LinkTreeCardActionArea{
+        flex-basis: 49%;
+
+      }
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  .linkTree {
+    justify-content: center;
+    width: 90%;
+
+    /* From https://css.glass */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.1px);
+    -webkit-backdrop-filter: blur(7.1px);
+
+    #singleLinksContainer{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+
+      .LinkTreeCardActionArea{
+        width: 96%;
+      }
+    }
+
+  }
+}
