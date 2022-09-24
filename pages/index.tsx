@@ -31,7 +31,10 @@ export async function getStaticProps() {
         .then(res => {
             fetchedBackgroundImage = (res.data.url)
         })
-        .catch(e => console.error(e));
+        .catch(e => {
+            console.error(e);
+            fetchedBackgroundImage = null;
+        });
     return {
         props: {
             cards,
