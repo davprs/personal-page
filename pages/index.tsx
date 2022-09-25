@@ -27,8 +27,11 @@ export async function getStaticProps() {
     } else { console.log(error)}
 
 
-    let fetchedBackgroundImage = await axios.get("https://bing.biturl.top/", {timeout: 10000})
-        .then(res => res.data.url)
+    let fetchedBackgroundImage = await axios("https://www.bing.com/HPImageArchive.aspx?format=js&idx=1&n=1&mkt=random", {timeout: 10000})
+        .then(res => {
+            console.log(res)
+            res
+        })
         .catch(e => {
             console.error(e.response.data);
             return 'https://www.bing.com/th?id=OHR.LastDollarRoad_JA-JP2023000360_1920x1080.jpg';
