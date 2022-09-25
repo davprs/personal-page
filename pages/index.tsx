@@ -40,10 +40,13 @@ export async function getStaticProps() {
             return 'https://www.bing.com/th?id=OHR.LastDollarRoad_JA-JP2023000360_1920x1080.jpg';
         });
     console.log("my guess is... " + fetchedBackgroundImage)
+
+    const renderTime = new Date().toString();
     return {
         props: {
             cards,
-            fetchedBackgroundImage
+            fetchedBackgroundImage,
+            renderTime,
         },
         // Next.js will attempt to re-generate the page:
         // - When a request comes in
@@ -52,13 +55,14 @@ export async function getStaticProps() {
     }
 }
 
-export default function Index({cards, fetchedBackgroundImage}) {
+export default function Index({cards, fetchedBackgroundImage, renderTime}) {
 
     const socials = ["https://www.instagram.com/crisantedavide/",
         "https://www.linkedin.com/in/davide-crisante-1568a9174/",
         "https://github.com/davprs",
         "https://opensea.io/0x1D9011E5FBe0D2061D3541a3c255aDb5844d01D4"];
 
+    console.log("last ISR : " + renderTime)
     //const [fetchedBackgroundImage1, setBackgroundImage] = useState("");
 
     /*useEffect(() => {

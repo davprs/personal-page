@@ -31,7 +31,7 @@ export default function LinkTreeSingleLink ({name, img, index, clickCallBack}) {
             }}
                 >
                 <div className={"picWrapper"} style={{ position: 'relative'}}>
-                    <Image src={img} alt={"immagine non trovata"} layout="fill" objectFit={"cover"} />
+                    <Image src={img} alt={"immagine non trovata"} layout="fill" quality={50} sizes={"100px"} objectFit={"cover"} />
                 </div>
             </CardMedia>
             <Typography sx={{width: "100%", textAlign: "left", fontSize: 15}} variant={"h6"}>{name}</Typography>

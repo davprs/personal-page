@@ -71,6 +71,7 @@ export const LinkTreeCard = ({cards, socials}) => {
                 backgroundColor: "rgba(0, 0, 0, 0)",
                 overflow:"scroll",
                 scrollbarWidth: 'thin',
+                minHeight: cards.length*63, //NOTA around cards.length*63
                 '::-webkit-scrollbar': {
                     width: '0.4em',
                 },
