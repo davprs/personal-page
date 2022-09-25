@@ -57,17 +57,17 @@ export default function Index({cards, fetchedBackgroundImage}) {
         "https://github.com/davprs",
         "https://opensea.io/0x1D9011E5FBe0D2061D3541a3c255aDb5844d01D4"];
 
-    /*const [fetchedBackgroundImage1, setBackgroundImage] = useState("");
+    // const [fetchedBackgroundImage1, setBackgroundImage] = useState("");
 
     useEffect(() => {
         axios("https://bing.biturl.top/?resolution=1920&format=json&index=random&mkt=random")
             .then(res => {
-                setBackgroundImage(res.data.url)
+                console.log(res.data.url)
             })
             .catch(e => console.error(e))
 
         }, [])
-    */
+
 
     return (
         <><Head>
