@@ -29,8 +29,9 @@ export async function getStaticProps() {
             cards.push([value['link_text'], [imgUrl, value['link_url']]]);
         }
     } else { console.log(error)}
-
-    let fetchedBackgroundImage = await axios(getRandomBackgroundImage(), {timeout: 10000})
+    const randomImageUrl = getRandomBackgroundImage();
+    console.log(randomImageUrl)
+    let fetchedBackgroundImage = await axios(randomImageUrl)
         .then(res => {
             console.log("my guess is... " + "https://www.bing.com" + res.data.images[0].url)
             return "https://www.bing.com" + res.data.images[0].url
@@ -47,7 +48,7 @@ export async function getStaticProps() {
         // Next.js will attempt to re-generate the page:
         // - When a request comes in
         // - At most once every 10 seconds
-        revalidate: 0*DAY + 4*HOUR + 0*MINUTE + 0*SECOND, // In seconds
+        revalidate: (0*DAY) + (4*HOUR) + (0*MINUTE) + (0*SECOND), // In seconds
     }
 }
 
@@ -60,7 +61,7 @@ export default function Index({cards, fetchedBackgroundImage}) {
 
     //const [fetchedBackgroundImage1, setBackgroundImage] = useState("");
 
-    useEffect(() => {
+    /*useEffect(() => {
         axios("https://bing.biturl.top/?resolution=1920&format=json&index=random&mkt=random")
             .then(res => {
                 console.log(res.data.url)
@@ -68,7 +69,7 @@ export default function Index({cards, fetchedBackgroundImage}) {
             .catch(e => console.error(e))
 
         }, [])
-
+    */
 
     return (
         <><Head>
