@@ -27,7 +27,7 @@ export async function getStaticProps() {
     } else { console.log(error)}
 
 
-    let fetchedBackgroundImage = await axios("https://bing.biturl.top/?resolution=1920&format=json&index=random&mkt=random")
+    let fetchedBackgroundImage = await axios("https://bing.biturl.top/?resolution=1920&format=json&index=random&mkt=random", {timeout: 10000})
         .then(res => res.data.url)
         .catch(e => {
             console.error(e.response.data);
