@@ -25,16 +25,18 @@ export async function getStaticProps() {
             cards.push([value['link_text'], [imgUrl, value['link_url']]]);
         }
     } else { console.log(error)}
-
-
     let fetchedBackgroundImage;
-    fetchedBackgroundImage = await fetch("https://bing.biturl.top/?resolution=1920&format=json&index=random&mkt=random")
-        .then(res => res.json())
-        .then(res => res.url)
-        .catch(e => {
-            console.error(e);
-            return null;
-        });
+
+    try {
+        let fetchedBackgroundImage_data = await fetch("https://bing.biturl.top/?resolution=1920&format=json&index=random&mkt=random");
+        let fetchedBackgroundImage_json = await fetchedBackgroundImage_data.json();
+        fetchedBackgroundImage = fetchedBackgroundImage_json.url;
+    } catch (e) {
+        console.log(e);
+        fetchedBackgroundImage = "https://www.bing.com/th?id=OHR.LastDollarRoad_JA-JP2023000360_1920x1080.jpg";
+    }
+
+
     return {
         props: {
             cards,
