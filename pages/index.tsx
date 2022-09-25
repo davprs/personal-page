@@ -28,7 +28,7 @@ export async function getStaticProps() {
     let fetchedBackgroundImage;
 
     try {
-        let fetchedBackgroundImage_data = (await fetch("https://bing.biturl.top/?resolution=1920&format=json&index=random&mkt=random!"));
+        let fetchedBackgroundImage_data = (await fetch("https://bing.biturl.top/?resolution=1920&format=json&index=random&mkt=random"));
         console.log(fetchedBackgroundImage_data)
         let fetchedBackgroundImage_json = await fetchedBackgroundImage_data.json();
         fetchedBackgroundImage = fetchedBackgroundImage_json.url;
