@@ -11,6 +11,10 @@ import getRandomBackgroundImage from "../lib/backgroundApiRequestUrlGenerator";
 // It may be called again, on a serverless function, if
 // revalidation is enabled and a new request comes in
 export async function getStaticProps() {
+    const DAY = 24 * 60 * 60;
+    const HOUR = 60 * 60;
+    const MINUTE = 60;
+    const SECOND = 1;
     const cards = [];
     const supabase = createClient(
         process.env.SUPABASE_URL,
@@ -43,7 +47,7 @@ export async function getStaticProps() {
         // Next.js will attempt to re-generate the page:
         // - When a request comes in
         // - At most once every 10 seconds
-        revalidate: (4 * 60) + 0, // In seconds
+        revalidate: 0*DAY + 4*HOUR + 0*MINUTE + 0*SECOND, // In seconds
     }
 }
 
