@@ -5,7 +5,7 @@ import axios from "axios";
 import { createClient } from '@supabase/supabase-js'
 import Head from "next/head";
 import Image from "next/image";
-import {fetch} from "next/dist/compiled/@edge-runtime/primitives/fetch";
+import getRandomBackgroundImage from "../lib/backgroundApiRequestUrlGenerator";
 
 // This function gets called at build time on server-side.
 // It may be called again, on a serverless function, if
@@ -26,8 +26,8 @@ export async function getStaticProps() {
         }
     } else { console.log(error)}
 
-
-    let fetchedBackgroundImage = await axios("https://www.bing.com/HPImageArchive.aspx?format=js&idx=1&n=1&mkt=random", {timeout: 10000})
+    console.log(getRandomBackgroundImage())
+    let fetchedBackgroundImage = await axios(getRandomBackgroundImage(), {timeout: 10000})
         .then(res => {
             console.log(res)
             console.log("my guess is... " + "https://www.bing.com" + res.data.images[0].url)
