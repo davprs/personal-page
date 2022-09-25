@@ -26,10 +26,8 @@ export async function getStaticProps() {
         }
     } else { console.log(error)}
 
-    console.log(getRandomBackgroundImage())
     let fetchedBackgroundImage = await axios(getRandomBackgroundImage(), {timeout: 10000})
         .then(res => {
-            console.log(res)
             console.log("my guess is... " + "https://www.bing.com" + res.data.images[0].url)
             return "https://www.bing.com" + res.data.images[0].url
         })
@@ -45,7 +43,7 @@ export async function getStaticProps() {
         // Next.js will attempt to re-generate the page:
         // - When a request comes in
         // - At most once every 10 seconds
-        revalidate: 30 * 60, // In seconds
+        revalidate: (0 * 60) + 10, // In seconds
     }
 }
 
