@@ -25,19 +25,14 @@ export async function getStaticProps() {
             cards.push([value['link_text'], [imgUrl, value['link_url']]]);
         }
     } else { console.log(error)}
-    let fetchedBackgroundImage;
-
-    try {
-        let fetchedBackgroundImage_data = (await fetch("https://bing.biturl.top/?resolution=1920&format=json&index=random&mkt=random"));
-        console.log(fetchedBackgroundImage_data)
-        let fetchedBackgroundImage_json = await fetchedBackgroundImage_data.json();
-        fetchedBackgroundImage = fetchedBackgroundImage_json.url;
-    } catch (e) {
-        console.log(e);
-        fetchedBackgroundImage = "https://www.bing.com/th?id=OHR.LastDollarRoad_JA-JP2023000360_1920x1080.jpg";
-    }
 
 
+    let fetchedBackgroundImage = await axios("https://bing.biturl.top/?resolution=1920&format=json&index=random&mkt=random")
+        .then(res => res.data.url)
+        .catch(e => {
+            console.error(e);
+            return 'https://www.bing.com/th?id=OHR.LastDollarRoad_JA-JP2023000360_1920x1080.jpg';
+        });
     return {
         props: {
             cards,
@@ -46,7 +41,7 @@ export async function getStaticProps() {
         // Next.js will attempt to re-generate the page:
         // - When a request comes in
         // - At most once every 10 seconds
-        revalidate: (0 * 60) + 10, // In seconds
+        revalidate: 30 * 60, // In seconds
     }
 }
 
@@ -57,17 +52,17 @@ export default function Index({cards, fetchedBackgroundImage}) {
         "https://github.com/davprs",
         "https://opensea.io/0x1D9011E5FBe0D2061D3541a3c255aDb5844d01D4"];
 
-    // const [fetchedBackgroundImage1, setBackgroundImage] = useState("");
+    /*const [fetchedBackgroundImage1, setBackgroundImage] = useState("");
 
     useEffect(() => {
         axios("https://bing.biturl.top/?resolution=1920&format=json&index=random&mkt=random")
             .then(res => {
-                console.log(res.data.url)
+                setBackgroundImage(res.data.url)
             })
             .catch(e => console.error(e))
 
         }, [])
-
+    */
 
     return (
         <><Head>
