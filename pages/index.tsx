@@ -30,8 +30,8 @@ export async function getStaticProps() {
     let fetchedBackgroundImage = await axios("https://www.bing.com/HPImageArchive.aspx?format=js&idx=1&n=1&mkt=random", {timeout: 10000})
         .then(res => {
             console.log(res)
-            console.log("my guess is... " + "https://www.bing.com/" + res.images.image.url)
-            return "https://www.bing.com/" + res.images.image.url
+            console.log("my guess is... " + "https://www.bing.com" + res.images[0].url)
+            return "https://www.bing.com" + res.images[0].url
         })
         .catch(e => {
             console.error(e.response.data);
