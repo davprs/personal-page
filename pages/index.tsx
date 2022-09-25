@@ -33,13 +33,13 @@ export async function getStaticProps() {
     console.log(randomImageUrl)
     let fetchedBackgroundImage = await axios(randomImageUrl)
         .then(res => {
-            console.log("my guess is... " + "https://www.bing.com" + res.data.images[0].url)
             return "https://www.bing.com" + res.data.images[0].url
         })
         .catch(e => {
             console.error(e.response.data);
             return 'https://www.bing.com/th?id=OHR.LastDollarRoad_JA-JP2023000360_1920x1080.jpg';
         });
+    console.log("my guess is... " + fetchedBackgroundImage)
     return {
         props: {
             cards,
