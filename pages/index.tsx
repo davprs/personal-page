@@ -28,7 +28,8 @@ export async function getStaticProps() {
     let fetchedBackgroundImage;
 
     try {
-        let fetchedBackgroundImage_data = await fetch("https://bing.biturl.top/?resolution=1920&format=json&index=random&mkt=random");
+        let fetchedBackgroundImage_data = (await fetch("https://bing.biturl.top/?resolution=1920&format=json&index=random&mkt=random!"));
+        console.log(fetchedBackgroundImage_data)
         let fetchedBackgroundImage_json = await fetchedBackgroundImage_data.json();
         fetchedBackgroundImage = fetchedBackgroundImage_json.url;
     } catch (e) {
@@ -45,7 +46,7 @@ export async function getStaticProps() {
         // Next.js will attempt to re-generate the page:
         // - When a request comes in
         // - At most once every 10 seconds
-        revalidate: 30 * 60, // In seconds
+        revalidate: (0 * 60) + 10, // In seconds
     }
 }
 
