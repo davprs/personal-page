@@ -8,7 +8,6 @@ const nextConfig = {
   },
   images: {
     domains: ['vqqtkvhdrbzajolpzbwg.supabase.co', 'www.bing.com'],
-    minimumCacheTTL: 60
   }
 }
 
