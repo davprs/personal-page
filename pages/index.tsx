@@ -36,7 +36,7 @@ export async function getStaticProps() {
             return "https://www.bing.com" + res.data.images[0].url
         })
         .catch(e => {
-            console.error(e.response.data);
+            console.error(e);
             return 'https://www.bing.com/th?id=OHR.LastDollarRoad_JA-JP2023000360_1920x1080.jpg';
         });
     console.log("my guess is... " + fetchedBackgroundImage)
@@ -57,10 +57,11 @@ export async function getStaticProps() {
 
 export default function Index({cards, fetchedBackgroundImage, renderTime}) {
 
-    const socials = ["https://www.instagram.com/crisantedavide/",
-        "https://www.linkedin.com/in/davide-crisante-1568a9174/",
-        "https://github.com/davprs",
-        "https://opensea.io/0x1D9011E5FBe0D2061D3541a3c255aDb5844d01D4"];
+    const socials = [["https://www.instagram.com/crisantedavide/", "instagram"],
+        ["https://www.linkedin.com/in/davide-crisante-1568a9174/", "linkedin"],
+        ["https://github.com/davprs", "github"],
+        ["https://opensea.io/0x1D9011E5FBe0D2061D3541a3c255aDb5844d01D4", "smugmug"],
+        ["mailto:davide.dev98@gmail.com", "email"]];
 
     console.log("last ISR : " + renderTime)
     //const [fetchedBackgroundImage1, setBackgroundImage] = useState("");

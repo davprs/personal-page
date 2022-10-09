@@ -12,24 +12,16 @@ import {useTheme} from "@mui/material";
 import Image from "next/image";
 
 export const LinkTreeCard = ({cards, socials}) => {
-    const [entryCards, loadCards] = useState();
-    const [entrySocial, loadSocial] = useState();
+    const [entryCards, loadCards] = useState(cards.map(([key, [img, url]], index) => {
+        console.log(key)
+        return <LinkTreeSingleLink key={index} name={key} img={img} index={index} url={url} />
+    }));
+    const [entrySocial, loadSocial] = useState(socials.map(([value, network], index) =>{
+        console.log(value);
+        return <SocialIcon url={value} key={index} network={network} className={"socialIcon"}/>
+    }));
     let {palette} = useTheme();
-    useEffect(()=>{
 
-        loadCards(Array.from(cards, ([key, [img, url]], index) => {
-                console.log(key)
-                return <LinkTreeSingleLink key={index} name={key} img={img} index={index} clickCallBack={()=>window.open(url, '_blank').focus()} />
-            })
-        );
-
-        loadSocial(Array.from(socials,(value, index) =>{
-            console.log(value);
-            return <SocialIcon url={value} key={index} className={"socialIcon"}/>
-        } ))
-
-
-    }, [cards, socials]);
 
 
     return (
@@ -37,7 +29,6 @@ export const LinkTreeCard = ({cards, socials}) => {
             color:  palette.text.primary,
             display: "flex",
             flexDirection: "column",
-            maxHeight: "95vh",
             borderRadius: 3,
             background: palette.cardBG.main
         }} className={"linkTree"}>
@@ -49,11 +40,8 @@ export const LinkTreeCard = ({cards, socials}) => {
                 justifyContent: "center"}}>
                 <CardMedia
                     sx={{
-                        minWidth: "120px",
-                        maxWidth: "150px",
-                        width: "30%",
                         aspectRatio: "1/1"
-                    }}>
+                    }} className={"cardMediaPicWrapper"}>
                     <div style={{ position: 'relative', aspectRatio: "1/1", overflow: "hidden",   borderRadius: "100%"}} className={"picWrapper"}>
                         <Image src={"/static/images/imgDavide.jpg"} priority={true} layout="fill" objectFit="cover" alt="foto di Davide Crisante"/>
                     </div>
@@ -61,6 +49,11 @@ export const LinkTreeCard = ({cards, socials}) => {
 
 
                 <Typography variant="h5">Davide Crisante</Typography>
+                <Typography variant="h7" sx={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    justifyContent: "center"
+                }}><div>Italian Software Engineer.</div><div>&nbsp;Let&apos;s get in touch!</div></Typography>
             </CardContent>
 
             <div id="socialIcons">
@@ -71,7 +64,7 @@ export const LinkTreeCard = ({cards, socials}) => {
                 backgroundColor: "rgba(0, 0, 0, 0)",
                 overflow:"scroll",
                 scrollbarWidth: 'thin',
-                minHeight: cards.length*63, //NOTA around cards.length*63
+                //minHeight: cards.length*63, //NOTA around cards.length*63
                 '::-webkit-scrollbar': {
                     width: '0.4em',
                 },
