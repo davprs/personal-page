@@ -17,6 +17,11 @@ export default function Document() {
                     });
                 `}
                 </Script>
+                <link
+                    rel="canonical"
+                    href="https://crisantedavide.ml"
+                    key="canonical"
+                />
 
                 <meta charSet="UTF-8" />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap"/>
