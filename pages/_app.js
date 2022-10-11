@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 
 function MyApp({ Component, pageProps }) {
 
-  const [currentTheme, setThemeState] = useState(darkTheme);
+  const [currentTheme, setThemeState] = useState(lightTheme);
   let interval;
 
   function setTheme(){
