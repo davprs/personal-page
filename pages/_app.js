@@ -6,6 +6,7 @@ import darkTheme from "../Themes/darkTheme";
 import lightTheme from "../Themes/lightTheme";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from 'next/router';
+import { Analytics } from '@vercel/analytics/react';
 
 function MyApp({ Component, pageProps }) {
 
@@ -51,6 +52,7 @@ function MyApp({ Component, pageProps }) {
         </div>
       </AnimatePresence>
     </ThemeProvider>
+    <Analytics />
     </>
 }
 
