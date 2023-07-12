@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 🪴Davide&#39;s Digital Garden</title>
-    <link>https://crisantedavide.ml/digital-garden/tags/</link>
+    <link>https://www.crisantedavide.ml/digital-garden/tags/</link>
     <description>Recent content in Tags on 🪴Davide&#39;s Digital Garden</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://crisantedavide.ml/digital-garden/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://www.crisantedavide.ml/digital-garden/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
