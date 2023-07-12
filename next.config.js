@@ -9,6 +9,27 @@ const nextConfig = {
   images: {
     domains: ['vqqtkvhdrbzajolpzbwg.supabase.co', 'www.bing.com'],
   }
+  ,
+  rewrites: async () => [
+    {
+      source: "/digital-garden/:slug*",
+      destination: "/api/serveDigitalGarden?:slug*"
+    }
+    ],
+    async redirects(){
+    return [
+
+      {
+        source: "/digital-garden/Capitalismo",
+        destination: "/digital-garden/Capitalismo/index.html",
+        permanent:true
+      },{
+        source: "/digital-garden/Legalizzazione-droghe",
+        destination: "/digital-garden/Legalizzazione-droghe/index.html",
+        permanent:true
+      }
+    ]
+  }
 }
 
 module.exports = nextConfig

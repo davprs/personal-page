@@ -86,6 +86,7 @@ export default function Index({cards, fetchedBackgroundImage, renderTime}) {
                        quality={100} alt={""} className={"backgroundImage"}/>
                 <LinkTreeCard cards={cards} socials={socials}/>
             </div>
+            <a href={"/digital-garden"}>Digital Garden</a>
         </>
     )
 }
